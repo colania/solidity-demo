@@ -1,0 +1,26 @@
+//SPDX-License-Identifier:GPL-3.0
+pragma solidity ^0.8.10;
+
+contract Enum{
+     enum Status{
+        Pending,
+        Shipped,
+        Accepted,
+        Rejected,
+        Canceled
+     }
+
+     Status public status;
+
+     function set(Status _status) public {
+        status = _status;
+    }
+
+    function cancel() public{
+        status = Status.Canceled;
+    }
+
+    function reset() public{
+        delete status;
+    }
+}
